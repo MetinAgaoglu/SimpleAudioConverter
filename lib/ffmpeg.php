@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 	/**
 	 * Converts the uploaded file to mp3 format using ffmpeg
@@ -19,6 +19,7 @@
 		if ($result) {
 			return ['status' => false, 'error' => $output[12]];
 		} else {
+			setHistory($mp3);
 			return ['status' => true, 'file' => $fileName];
 		}
 	}

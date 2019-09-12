@@ -30,15 +30,33 @@
         <a href="stream.php?file=<?= getFlashCustomDataIfExists() ?>">Download</a>
 	<?php endif; ?>
 	<?php flushFlashMessage(); ?>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="csrf_token" value="<?= getCsrfToken() ?>">
-        <div class="form-group">
-            <label for="exampleFormControlFile1">Audio file</label>
-            <input type="file" class="form-control-file" name="sound_file">
-        </div>
 
-        <input type="submit" class="btn btn-primary" name="convert_and_download">
-    </form>
+    <div class="row">
+        <div class="col">
+            <form action="upload.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?= getCsrfToken() ?>">
+                <div class="form-group">
+                    <label><?php gettext('Audio file') ?></label>
+                    <input type="file" class="form-control-file" name="sound_file">
+                </div>
+
+                <input type="submit" class="btn btn-primary" name="convert_and_download">
+            </form>
+        </div>
+        <div class="col">
+            <h2><?= gettext('History') ?></h2>
+			<?php foreach (getUploadedMp3ByUserId() as $value) {
+				?>
+                <audio controls>
+                    <source src="stream.php?file=<?= $value ?>" type="audio/mpeg">
+                    <?= gettext('Your browser does not support the audio element.') ?>
+                </audio>
+				<?php
+			} ?>
+        </div>
+    </div>
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

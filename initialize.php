@@ -3,6 +3,7 @@
 	session_start();
 	require 'lib/autoload.php';
 
+	setUserID();
 	// Service Container?
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (!isCsrfTokenValid($_POST['csrf_token'])) {
