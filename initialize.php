@@ -15,3 +15,7 @@
 			exit;
 		}
 	}
+
+	if (!file_exists('results')) {
+		mkdir('results');
+	}
