@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- For PWA -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
